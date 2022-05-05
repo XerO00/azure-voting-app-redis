@@ -22,7 +22,7 @@ pipeline {
          steps {
             sh(script: """
                docker-compose up -d
-               # ./scripts/test_container.sh
+               #./scripts/test_container.sh
             """)
          }
          post {
@@ -34,13 +34,13 @@ pipeline {
             }
          }
       }
-      stage('Run Tests') {
-         steps {
-            sh(script: """
-               pytest ./tests/test_sample.py
-            """)
-         }
-      }
+    //   stage('Run Tests') {
+    //      steps {
+    //         sh(script: """
+    //            pytest ./tests/test_sample.py
+    //         """)
+    //      }
+    //   }
       stage('Stop test app') {
          steps {
             sh(script: """
