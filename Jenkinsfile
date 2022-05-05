@@ -58,14 +58,14 @@ pipeline {
                   anchore bailOnFail: false, bailOnPluginFail: false, name: 'anchore_images'
                }
             }
-            stage('Run Trivy') {
-               steps {
-                  sleep(time: 30, unit: 'SECONDS')
-                  sh(script: """
-                  trivy i jenkins-pipeline
-                  """)
-               }
-            }
+            // stage('Run Trivy') {
+            //    steps {
+            //       sleep(time: 30, unit: 'SECONDS')
+            //       sh(script: """
+            //       trivy i jenkins-pipeline
+            //       """)
+            //    }
+            // }
          }
       }
     //   stage('Deploy to QA') {
