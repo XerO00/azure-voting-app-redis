@@ -50,19 +50,19 @@ pipeline {
       }
       stage('Container Scanning') {
          parallel {
-            // stage('Run Anchore') {
-            //    steps {
-            //       sh(script: """
-            //          Write-Output "blackdentech/jenkins-course" > anchore_images
-            //       """)
-            //       anchore bailOnFail: false, bailOnPluginFail: false, name: 'anchore_images'
-            //    }
-            // }
+            stage('Run Anchore') {
+               steps {
+                  sh(script: """
+                     echo "jenkins-pipeline" > anchore_images
+                  """)
+                  anchore bailOnFail: false, bailOnPluginFail: false, name: 'anchore_images'
+               }
+            }
             stage('Run Trivy') {
                steps {
                   sleep(time: 30, unit: 'SECONDS')
                   sh(script: """
-                  trivy -i jenkins-pipeline
+                  trivy i jenkins-pipeline
                   """)
                }
             }
