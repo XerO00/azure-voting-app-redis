@@ -1,5 +1,7 @@
 pipeline {
-   agent any
+   agent {
+      lable "c1-node1"
+   }
 
    stages {
       stage('Verify Branch') {
